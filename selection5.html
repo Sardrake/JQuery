@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sélecteurs CSS</title>
+  </head>
+  <body>
+    <h1>Titre de niveau 1</h1>
+    <h2>Titre de niveau 2</h2>
+    <h3>Titre de niveau 3</h3>
+    <p>Un paragraphe de texte</p>
+    <div>Texte dans une balise div</div>
+
+    <script src="jquery.js"></script>
+    <script>
+      $(function() {
+        $('div').hide();
+        //Le code jQuery sera inséré ici
+        $(':header').css('color','red');
+        $('div:hidden').show();
+        $(':header:not(h1)').hide();
+      }); 
+    </script>
+  </body>
+</html>
