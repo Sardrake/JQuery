@@ -25,7 +25,7 @@
     </div>
     <div id="droite">
       Utilisez ces boutons pour créer votre formulaire<br><br>
-      <button>Label</button>
+      <button id="label">Label</button>
       <button>Zone de texte</button>
       <button>Bouton</button>
     </div>
@@ -34,9 +34,12 @@
     <script>
     $(function() {
       //debut js
-      
+      $('button[1]').click(function(){
+        alert("Bonout label");
+      });
 
     });
+    </script>
 
   </body>
 </html>
