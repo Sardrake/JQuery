@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <style>
       body {
-        margin: 0;
+        margin: 0px;
       }
       #gauche {
         float: left;
@@ -18,8 +18,16 @@
         padding : 10px;
         padding-left: 71%;
       }
+
+      div {
+        font-weight: bold;
+      }
+      span, button, input {
+        margin: 10px;
+      }
     </style>
   </head>
+
   <body>
     <div id="gauche">
     </div>
@@ -33,9 +41,10 @@
     <script src="jquery.js"></script>
     <script>
     $(function() {
-      //debut js
+      $('button:nth(2)').after('<hr>'); //ajout le la ligne sous le le bouton "Bouton"
+
       $('button:first').click(function(){
-        $('button:nth(2)').after('<div id="formText"><hr> Texte du label <input type="text" id="idText" /><button id="btnOk">Ok</button></div>');
+        $('hr').after('<div id="formText">Texte du label <input type="text" id="idText" /><button id="btnOk">Ok</button></div>');
         
         $('#btnOk').click(function(){
           $('#gauche').append('<span>' + $('#idText').val() + '</span>');
@@ -45,12 +54,22 @@
 
 
       $('button:nth(1)').click(function(){
-        alert("Bouton Zone de text");
+        $('hr').after('<div id="formText">id de la zone de texte <input type="text" id="idZoneText" /><button id="btnOk">Ok</button></div>');
+        
+        $('#btnOk').click(function(){
+          $('#gauche').append('<input id=' + $('#idZoneText').val() + 'type="text">');
+          $('#formText').remove();
+        });
       });
 
 
       $('button:nth(2)').click(function(){
-        alert("Bouton bouton");
+        $('hr').after('<div id="formText">Texte du bouton <input type="text" id="idBouton" /><button id="btnOk">Ok</button></div>');
+        
+        $('#btnOk').click(function(){
+          $('#gauche').append('<button>' + $('#idBouton').val() + '</button>');
+          $('#formText').remove();
+        });
       });
 
     });
