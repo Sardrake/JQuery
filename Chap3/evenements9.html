@@ -1,0 +1,15 @@
+<img src="canard.jpg"><br />
+<a href="http://www.siteduzero.com">Cliquez ici pour aller sur le Site du Zéro</a>
+
+<script src="jquery.js"></script>
+<script>
+  $(function() {
+    alert('Le DOM est chargé');
+    $(window).load(function() {
+        alert('La page est entièrement chargée');
+    });
+    $(window).unload(function() {
+        alert('Vous avez demandé à changer de page');
+    });
+  });
+</script>

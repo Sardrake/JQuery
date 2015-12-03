@@ -1,0 +1,11 @@
+<span id="resultat"></span>
+
+<script src="jquery.js"></script>
+<script>
+  $(function() {
+    $(window).resize(function() {
+      var taille = 'Taille de la fenêtre : ' + $(window).width() + 'px x ' + $(window).height() + 'px';
+      $('#resultat').text(taille);
+    });
+  });
+  </script>
