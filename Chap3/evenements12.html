@@ -1,0 +1,16 @@
+Cliquez sur l'image<br ></code>
+<img src="bon.gif"><br />
+<span id='message'></span><br />
+<button>Cliquez ici</button>
+
+<script src="jquery.js"></script>
+<script>
+  $(function() {
+    $('img').click(function() {
+      $('#message').text('L\'image a été cliquée.').fadeIn(1000).fadeOut(1000);
+    });
+    $('button').click(function() {
+      $('img').trigger('click');
+    });  
+  });
+  </script>
