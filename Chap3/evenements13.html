@@ -1,0 +1,13 @@
+<button id="bonjour">Cliquez ici</button>
+
+<script src="jquery.js"></script>
+<script>
+  $(function() {
+    $('#bonjour').on('bonjour_jquery', function() {
+      alert('jQuery vous dit bonjour !');
+    });
+    $('#bonjour').click(function() {
+      $('#bonjour').trigger('bonjour_jquery');
+    });  
+  });
+</script>
