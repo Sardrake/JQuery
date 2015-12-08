@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cours jQuery</title>
+  </head>
+  <body>
+
+    <span id="heure"></span>
+
+    <script src="jquery.js"></script>
+    <script>
+    $(function() {
+      function Horloge() {
+        var laDate = new Date();
+        var h = laDate.getHours() + ":" + laDate.getMinutes() + ":" + laDate.getSeconds();
+        $('#heure').text(h);
+      }
+      setInterval(Horloge, 1000);
+    });
+    </script>
+
+
+  </body>
+</html>
