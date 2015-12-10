@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cours jQuery</title>
+  </head>
+  <body>
+
+    Tapez du texte dans la première zone de texte, une position dans la deuxième zone de texte, puis cliquez sur le bouton.<br><br>
+    Texte : <input type="text" id="texte" /><br>
+    Position : <input type="text" id="position" /><br>
+    <button id="action">Cliquez ici</button><br>
+    <div id="resultat"></div>
+
+    <script src="jquery.js"></script>
+    <script>
+      $(function() {
+        $('#action').click(function() {
+          var leTexte = $('#texte').val();
+          var laPosition = $('#position').val();
+          var leResultat = 'Le caractère en position ' + laPosition + ' est un "' + leTexte.charAt(laPosition) + '"';
+          $('#resultat').text(leResultat);
+        });  
+      });
+    </script>
+
+
+
+
+  </body>
+</html>
