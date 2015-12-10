@@ -118,7 +118,68 @@
 
     <script src="jquery.js"></script>
     <script>
-      // Entrer les instructions jQuery ici
+      $(function() {
+
+        // couleur de fond
+        $('#couleur-fond').change(function() {
+          var couleurFond = $('#couleur-fond option:selected').val();
+          $('#contenu').css('background-color',couleurFond);
+        });
+
+        // texte
+        $('#texte').change(function() {
+          var styleTexte = $('#texte option:selected').val();
+          if (styleTexte == 'Gras') $('#contenu p').css('font-weight', 'bold');
+          if (styleTexte == 'Italique') $('#contenu p').css('font-style', 'italic');
+          if (styleTexte == 'Souligne') $('#contenu p').css('text-decoration', 'underline');
+          if (styleTexte == 'Normal') {
+            $('#contenu p').css('font-weight', 'normal');
+            $('#contenu p').css('font-style', 'normal');
+            $('#contenu p').css('text-decoration', 'none');
+          }
+        });
+
+        // Police
+        $('#police').change(function() {
+          var police = '"' + $('#police option:selected').val() + '"';         
+          $('#contenu p').css('font-family',police);
+        });
+
+        // Police 1ere phrase
+        $('#police-prem-phrase').change(function() {
+          var policePremPhrase = '"' + $('#police-prem-phrase option:selected').val() + '"';
+          $('#contenu p:first').css('font-family',policePremPhrase);
+        });
+
+        // Premier caractère des phrases
+        $('#prem-car-phrases').change(function() {
+          var premCarPhrase = $('#prem-car-phrases').val();
+          if (premCarPhrase == 'Gras') {
+            $('p').each(function(){ 
+            var tableau = $(this).text().split('. ');
+              if (tableau.length == 1) {}
+                else {
+                  var tableau2 = $.map(tableau, function(el, ind) {
+                    if (el[0] != null) return '<b>' + (el[0]) + '</b>' + el.substring(1) + '. ';
+                  });
+                $(this).html(tableau2.join(''));
+                }
+            });
+          }
+
+          if (premCarPhrase == 'Normal') {
+            $('p').each(function() {
+              var unPar = $(this).html();
+              if (unPar.indexOf('<img') == -1)
+                $(this).text($(this).text());
+            });
+          }
+        });
+
+      });
+      
+
+
     </script> 
   </body>
 </html>
