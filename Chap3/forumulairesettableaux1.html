@@ -13,7 +13,8 @@
       <input type="text" id="zone2"><br />
       <input type="text" id="zone3"><br />
       <textarea id="zone4"></textarea>
-    </form>    
+    </form>  
+    <button id="raz">RAZ du formulaire</button>  
 
     <script src="jquery.js"></script>
     <script>
@@ -27,6 +28,15 @@
           leFocus = '#' + $(this).attr('id');        
           $(leFocus).css('background-color', '#fff');
         }); 
+        function efface_formulaire () {
+        $(':input')
+         .not(':button, :submit, :reset, :hidden')
+         .val('')
+         .prop('checked', false)
+         .prop('selected', false);
+      };
+        $('#raz').click(efface_formulaire);
+
       });
     </script>
 
