@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cours jQuery</title>
+  </head>
+  <body>
+
+    Tapez du texte dans la zone de texte en le faisant commencer et/ou finir par des espaces, puis cliquez sur le bouton.<br><br>
+    <input type="text" id="texte" />
+    <button id="action">Cliquez ici</button>
+    <pre id="resultat"></pre>
+
+    <script src="jquery.js"></script>
+    <script>
+      $(function() {
+        $('#action').click(function() {
+          var leTexte = $('#texte').val();
+          $('#resultat').html('Texte original           : "' + leTexte + '"' + 
+                          '<br>Après la fonction trim() : "' + $.trim(leTexte) + '"');
+        });  
+      });
+    </script>
+
+
+
+  </body>
+</html>
