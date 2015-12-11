@@ -180,10 +180,23 @@
           var mot = $('#mot').val();
           var tableau = $('p:first').text().split(' ');
           var tableau2 = $.map(tableau, function(el, ind) {
-            if (ind+1 == mot) return ('<font color="red"' + el + '</font>')
+            if (ind+1 == mot) return ('<font color="red">' + el + '</font>')
               else return(el);
           });
           $('p:first').html(tableau2.join(' '));
+        });
+
+        // Bordure Image
+        $('#bordure-images').change(function() {
+          var bordureImages = $('#bordure-images option:selected').val();
+          if (bordureImages == 'Rien') $('img').css('border', '2px solid white');
+          if (bordureImages == 'Simple') $('img').css('border', '2px solid blue');
+          if (bordureImages == 'Double') $('img').css('border', '5px solid blue');
+        });
+
+        // Raz formulaire
+        $('#raz').click(function() {
+          location.reload();
         });
 
       });
