@@ -2,15 +2,67 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Mise en forme</title>
-    <
+    <title>Jeu JQuery</title>
+    <style>
+    #jeu {
+      width: 400px;
+      height: 400px;
+      border: 2px black solid;
+      position: relative;
+      }
+
+    .fond{
+      margin-bottom: -5px;
+      z-index: 10;
+      position: relative;
+    }
+
+    #vj {
+      z-index: 100;
+      position: absolute;
+      top: 10px;
+      left: 48px;
+    }
+
+    #vr {
+      z-index: 80;
+      position: absolute;
+      top: -200px;
+      left: 0px;
+    }
+
+    </style>
+
   </head>
   <body>
     
+    Collisions : <span id="info">0</span>
+
+    <div id="jeu"> 
+      <img id="fond1" class="fond" src="route.png">
+      <img id="fond2" class="fond" src="route.png">
+      <img id="vj" src="vj.png">
+      <img id="vr" src="vr.png">
+    </div>
 
     <script src="jquery.js"></script>
     <script>
       $(function() {
+
+        // animation route
+        function deplace()
+          {
+            $('.fond').animate({
+              top: '-=360'
+            },
+            1000,
+            'linear',
+            function(){
+              $('.fond').css('top', 0);
+              deplace();
+            });
+          }
+
 
 
       });
