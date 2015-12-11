@@ -166,7 +166,6 @@
                 }
             });
           }
-
           if (premCarPhrase == 'Normal') {
             $('p').each(function() {
               var unPar = $(this).html();
@@ -174,6 +173,17 @@
                 $(this).text($(this).text());
             });
           }
+        });
+
+        // Mot en rouge
+        $('#couleurMot').click(function() {
+          var mot = $('#mot').val();
+          var tableau = $('p:first').text().split(' ');
+          var tableau2 = $.map(tableau, function(el, ind) {
+            if (ind+1 == mot) return ('<font color="red"' + el + '</font>')
+              else return(el);
+          });
+          $('p:first').html(tableau2.join(' '));
         });
 
       });
