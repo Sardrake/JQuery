@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>test clavier</title>
+  </head>
+
+  <body>
+  	Code ASCII renvoyé : <span id='valeur'></span>
+
+  	<script src="jquery.js"></script>
+  	<script>
+  		$(function() {
+  			$(document).keydown(function(e) {
+  				
+  				$('#valeur').text(e.which);
+  			});
+  		});
+  	</script>
+  </body>
+</html>

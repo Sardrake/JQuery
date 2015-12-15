@@ -64,6 +64,17 @@
             });
           };
 
+        $(document).keydown(function(e) {
+          if (e.which == 39) {
+            vjX = parseInt($('#vj').css('left'));
+            if (vjX<280) $('#vj').css('left',vjX+30);
+          }
+          if (e.which == 37) {
+            vjX = parseInt($('#vj').css('left'));
+            if (vjX>70) $('#vj').css('left', vjX-30);
+          }
+        });
+
       deplace();
 
       });
