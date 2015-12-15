@@ -93,8 +93,8 @@
           vrX = parseInt($('#vr').css('left'));
           vjY = 10;
           vrY = parseInt($('#vr').css('top'));
-          if (((vrX > vjX) && (vrX < (vjX+66)) && (vrY > vjY) && (vrY < (vjT+150)) && (ok == 1))
-            || ((vjX > vrX) && (vjX < (vrX+66)) && (vrY > vjY) && (vrY < (vjY+150)) && (ok == 1)))
+          if (((vrX > vjX) && (vrX < (vjX+66)) && (vrY > (vjY+120)) && (vrY < (vjY+150)) && (ok == 1))
+            || ((vjX > vrX) && (vjX < (vrX+66)) && (vrY > (vjY+120)) && (vrY < (vjY+150)) && (ok == 1)))
           {
             $('#son')[0].play();
             collision = parseInt($('#info').text()) + 1;
