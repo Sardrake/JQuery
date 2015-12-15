@@ -8,6 +8,7 @@
       width: 400px;
       height: 400px;
       border: 2px black solid;
+      overflow: hidden;
       position: relative;
       }
 
@@ -35,6 +36,11 @@
 
   </head>
   <body>
+
+    <audio preload="auto" id="son">
+      <source src="beep.mp3" type="audio/mp3">
+      <source srv="beep.ogg" type="audio/ogg">
+    </audio>
     
     Collisions : <span id="info">0</span>
 
@@ -48,6 +54,7 @@
     <script src="jquery.js"></script>
     <script>
       $(function() {
+        var ok = 1;
 
         // animation route et voiture rouge
         function deplace()
@@ -58,6 +65,7 @@
               var vrY = 400;
               $('#vr').css('top',vrY);
               $('#vr').css('left',vrX);
+              ok = 1;
             });
 
             // anim route
@@ -85,9 +93,10 @@
           vrX = parseInt($('#vr').css('left'));
           vjY = 10;
           vrY = parseInt($('#vr').css('top'));
-          if (((vrX > vjX) && (vrX < (vjX+66)) && (vrY > (vjY+120)) && (vrY < (vjT+150)) && (ok == 1))
-            || ((vrX2 > vjX) && (vrX2 < (vjX+66)) && (vrY > (vjY+120)) && (vrY < (vjY+150)) && (ok == 1)))
+          if (((vrX > vjX) && (vrX < (vjX+66)) && (vrY > vjY) && (vrY < (vjT+150)) && (ok == 1))
+            || ((vjX > vrX) && (vjX < (vrX+66)) && (vrY > vjY) && (vrY < (vjY+150)) && (ok == 1)))
           {
+            $('#son')[0].play();
             collision = parseInt($('#info').text()) + 1;
             $('#info').text(collision);
             ok = 0;
@@ -95,6 +104,7 @@
         }
 
       deplace();
+      setInterval(collision, 20);
 
       });
 
